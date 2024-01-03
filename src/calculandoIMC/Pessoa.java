@@ -1,8 +1,8 @@
 package calculandoIMC;
- //Rafael Henrique da Silva Regis, F34ICB5
+
 public class Pessoa {
 	private double peso;
-	public double altura = 1.75;
+	private double altura;
 	public double imc;
 	public String status;
 	public double altr;
@@ -12,11 +12,19 @@ public class Pessoa {
 	}
 	public void setPeso(double peso) {
 		this.peso = peso;
-		if(peso > 500) {
+		if(peso > 500 || peso < 1) { // Se o peso for maior que 500 *ou* menor que 1kg, printará na tela a mensagem "Valor inválido!"
 			System.out.println("Valor inválido!");
-			System.exit(1);
+			System.exit(1); // Comando para que o programa pare 
 		}
-		else if(peso <1 ) {
+	}
+
+	public double getAltura() {
+		return altura;
+	}
+
+	public void setAltura(double altura) {
+		this.altura = altura;
+		if (altura > 3.0 || altura < 0.1) { // Se a altura for maior que 3 *ou* menor que 0,1 metros, printará na tela a mensagem "Valor inválido!"
 			System.out.println("Valor inválido!");
 			System.exit(1);
 		}
@@ -47,16 +55,11 @@ public class Pessoa {
 		return status;
 	}
 	
-	public double alterarPeso(double peso2, double _altr) {
+	public double alterarPeso(double _altr) {
 		this.altr = _altr;
-		this.peso = peso2;
-		peso = (_altr + peso2);
-		if(peso < 0) {
-			System.out.println("Alteração Inválida");
-			System.exit(1);
-		}
-		else if(peso > 500) {
-			System.out.println("Alteração Inválida");
+		peso = (_altr + peso);
+		if(peso <= (-peso) || peso > 500) { // Nessa 1ª condição, caso o peso seja menor ou igual ao peso que anteriormente 
+			System.out.println("Alteração Inválida"); // foi declarado pelo usuário, será invalidado
 			System.exit(1);
 		}
 		return peso;
