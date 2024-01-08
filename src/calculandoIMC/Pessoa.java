@@ -4,7 +4,6 @@ public class Pessoa {
 	private double peso;
 	private double altura;
 	public double imc;
-	public String status;
 	public double altr;
 	
 	public double getPeso() {
@@ -35,24 +34,19 @@ public class Pessoa {
 		return imc;
 	}
 	
-	public String statusSaude() {
+	public void statusSaude() {
 		if(imc < 18.5) {
 			System.out.println("Abaixo do peso!");
-			System.exit(1);
 		}
 		else if(imc < 25) {
 			System.out.println("Normal!");
-			System.exit(1);
 		}
 		else if(imc < 30) {
 			System.out.println("Sobrepeso!");
-			System.exit(1);
 		}
 		else {
 			System.out.println("Obesidade!");
-			System.exit(1);
 		}
-		return status;
 	}
 	
 	public double alterarPeso(double _altr) {

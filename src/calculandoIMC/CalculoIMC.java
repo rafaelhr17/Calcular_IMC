@@ -6,7 +6,8 @@ public class CalculoIMC {
 	public static void main(String[] args) {
 		Pessoa p = new Pessoa();
 		Scanner leia = new Scanner(System.in);
-		
+		int opcao; // variável que recebe numéros inteiros que será utilizado para repetir a aplicação
+			do { // comando que roda tudo que estiver entre chaves {}
 		System.out.println("Olá, seja bem vindo ao cálculo de IMC!");
 		System.out.println("Informe sua altura.");
 		System.out.print("Altura: ");
@@ -24,9 +25,10 @@ public class CalculoIMC {
 		System.out.println("IMC: " + p.calcularIMC());
 
 		System.out.println("Veja abaixo seu estado de saúde.");
-		System.out.println(p.statusSaude());
-		
+		p.statusSaude();
 
+		System.out.println("Deseja calcular novamente seu IMC? [1] para Sim, [0] para Não.");
+		opcao = leia.nextInt();
+			} while(opcao != 0); // comando que recebe o número que o usuário digitou para repetir a aplição se for diferente de 0.
 	}
-
 }
